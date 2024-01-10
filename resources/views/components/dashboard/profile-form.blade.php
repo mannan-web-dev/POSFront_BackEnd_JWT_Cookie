@@ -49,6 +49,7 @@
         if(res.status===200 && res.data['status']==='success'){
             let data=res.data['data'];
             document.getElementById('email').value=data['email'];
+            console.log(data);
             document.getElementById('firstName').value=data['firstName'];
             document.getElementById('lastName').value=data['lastName'];
             document.getElementById('mobile').value=data['mobile'];
