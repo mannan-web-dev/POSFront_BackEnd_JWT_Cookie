@@ -70,11 +70,11 @@
         document.getElementById('oldImg').src=filePath;
 
 
-        showLoader();
+       
         await UpdateFillCategoryDropDown();
 
         let res=await axios.post("/product-by-id",{id:id})
-        hideLoader();
+
 
         document.getElementById('productNameUpdate').value=res.data['name'];
         document.getElementById('productPriceUpdate').value=res.data['price'];
@@ -128,9 +128,8 @@
                 }
             }
 
-            showLoader();
             let res = await axios.post("/update-product",formData,config)
-            hideLoader();
+
 
             if(res.status===200 && res.data===1){
                 successToast('Request completed');

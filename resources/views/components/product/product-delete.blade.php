@@ -4,8 +4,8 @@
             <div class="modal-body text-center">
                 <h3 class=" mt-3 text-warning">Delete !</h3>
                 <p class="mb-3">Once delete, you can't get it back.</p>
-                <input class="d-none" id="deleteID"/>
-                <input class="d-none" id="deleteFilePath"/>
+                <input class="d-non e" id="deleteID"/>
+                <input class="d-non e" id="deleteFilePath"/>
 
             </div>
             <div class="modal-footer justify-content-end">
@@ -19,19 +19,19 @@
 </div>
 
 <script>
-     async  function  itemDelete(){
-            let id=document.getElementById('deleteID').value;
-            let deleteFilePath=document.getElementById('deleteFilePath').value;
-            document.getElementById('delete-modal-close').click();
-            showLoader();
-            let res=await axios.post("/delete-product",{id:id,file_path:deleteFilePath})
-            hideLoader();
-            if(res.data===1){
-                successToast("Request completed")
-                await getList();
-            }
-            else{
-                errorToast("Request fail!")
-            }
-     }
+      async function itemDelete(){
+          let id =document.getElementById("deleteID").value;
+          let img =document.getElementById("deleteFilePath").value
+
+          document.getElementById("delete-modal-close").click();
+
+          let res =await axios.post("/delete-product",{product_id:id,file_path:img});
+          
+          if (res.data===1) {
+            successToast('product has been deleted')
+           await getList();
+          }else{
+            errorToast("somthing are went")
+          }
+      }
 </script>

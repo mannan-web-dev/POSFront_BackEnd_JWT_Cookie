@@ -17,11 +17,11 @@
 
 <body>
 
-<div id="loader" class="LoadingOverlay d-none">
+<!-- <div id="loader" class="LoadingOverlay d-none">
 <div class="Line-Progress">
     <div class="indeterminate"></div>
 </div>
-</div>
+</div> -->
 
 <div>
     @yield('content')
