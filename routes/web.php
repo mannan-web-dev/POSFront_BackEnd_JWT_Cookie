@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Middleware\TokenVerifiedMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,13 @@ Route::post("/delete-customer",[CustomerController::class,'CustomerDelete'])->mi
 Route::post("/update-customer",[CustomerController::class,'CustomerUpdate'])->middleware([TokenVerifiedMiddleware::class]);
 Route::post("/customer-by-id",[CustomerController::class,'CustomerByID'])->middleware([TokenVerifiedMiddleware::class]);
 
+
+// Invoice
+Route::post("/invoice-create",[InvoiceController::class,'invoiceCreate'])->middleware([TokenVerifiedMiddleware::class]);
+Route::get("/invoice-select",[InvoiceController::class,'invoiceSelect'])->middleware([TokenVerifiedMiddleware::class]);
+Route::post("/invoice-details",[InvoiceController::class,'InvoiceDetails'])->middleware([TokenVerifiedMiddleware::class]);
+Route::post("/invoice-delete",[InvoiceController::class,'invoiceDelete'])->middleware([TokenVerifiedMiddleware::class]);
+
 // Page Routes
 Route::get('/',[HomeController::class,'HomePage']);
 Route::get('/userLogin',[UserController::class,'LoginPage']);
@@ -63,6 +71,8 @@ Route::get('/resetPassword',[UserController::class,'ResetPasswordPage'])->middle
 Route::get('/dashboard',[DashboardController::class,'DashboardPage'])->middleware([TokenVerifiedMiddleware::class]);
 Route::get('/userProfile',[UserController::class,'ProfilePage'])->middleware([TokenVerifiedMiddleware::class]);
 Route::get('/customerPage',[CustomerController::class,'CustomerPage'])->middleware([TokenVerifiedMiddleware::class]);
+Route::get('/invoicePage',[InvoiceController::class,'InvoicePage'])->middleware([TokenVerifiedMiddleware::class]);
+Route::get('/salePage',[InvoiceController::class,'SalePage'])->middleware([TokenVerifiedMiddleware::class]);
 
 
 Route::get('/categoryPage',[CategoryController::class,'CategoryPage'])->middleware([TokenVerifiedMiddleware::class]);

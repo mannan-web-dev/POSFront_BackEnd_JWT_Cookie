@@ -65,9 +65,9 @@
 
     async function InvoiceDetails(cus_id,inv_id) {
 
-        showLoader()
+
         let res=await axios.post("/invoice-details",{cus_id:cus_id,inv_id:inv_id})
-        hideLoader();
+
 
         document.getElementById('CName').innerText=res.data['customer']['name']
         document.getElementById('CId').innerText=res.data['customer']['user_id']

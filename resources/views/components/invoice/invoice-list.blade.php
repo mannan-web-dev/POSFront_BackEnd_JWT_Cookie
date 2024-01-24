@@ -41,9 +41,8 @@ getList();
 async function getList() {
 
 
-    showLoader();
     let res=await axios.get("/invoice-select");
-    hideLoader();
+
 
     let tableList=$("#tableList");
     let tableData=$("#tableData");
